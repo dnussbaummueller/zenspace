@@ -1,14 +1,16 @@
 class YogaClassesController < ApplicationController
-  def new
-    @class = YogaClass.new
-  end
+ skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @classes = YogaClass.all
+    @yoga_classes = YogaClass.all
   end
 
   def show
-    @class = YogaClass.find(params[:index])
+    @yoga_class = YogaClass.find(params[:id])
+  end
+  
+  def new
+    @class = YogaClass.new
   end
 
   def create
