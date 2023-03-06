@@ -77,5 +77,10 @@ group :test do
   gem "webdrivers"
 end
 
+
 # Custom gems
 gem "cloudinary"
+gem "faker"
+gem "geocoder"
+
+
