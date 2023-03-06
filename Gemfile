@@ -76,3 +76,13 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "devise"
+
+# Using Faker to generate fake data for testing
+gem "faker"
+
+# Using Cloudinary for photo storage
+gem "cloudinary"
+gem 'geocoder'
+gem "bootstrap", "~> 5.2.3"
