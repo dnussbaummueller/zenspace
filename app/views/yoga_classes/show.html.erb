@@ -16,7 +16,7 @@
       <%# Info Card: %>
       <div class="info-card my-card border-bottom flex-grow-1">
         <div class="title-bar d-flex justify-content-between align-items-start border-bottom mb-3 pb-2">
-          <h1><%= @yoga_class.name %></h1>
+          <h2><%= @yoga_class.name %></h1>
           <%# render 'partials/average_rating', yoga_studio: @yoga_studio %>
         </div>
         <div class="short-details border-bottom pb-2">
@@ -35,13 +35,14 @@
         </div>
 
         <div class="teacher-avatar">
-          <%= cl_image_tag @yoga_class.yoga_studio_teacher.teacher.photos.first.key, class: "avatar" %>
+          <%= cl_image_tag @yoga_class.yoga_studio_teacher.teacher.photos.first.key, class: "avatar-large" %>
         </div>
       </div>
       <div class="teacher-card-body">
         <h3><%= @yoga_class.yoga_studio_teacher.teacher.name %></h3>
         <p><%= @yoga_class.yoga_studio_teacher.teacher.description %></p>
       </div>
+      <%= link_to "View Teacher", yoga_class_path(@yoga_class), class: "btn-flat w-100" %>
     </div>
 
     <%# Studio Card %>
@@ -52,13 +53,14 @@
           <%= render 'shared/average_rating', reviewable_type: @yoga_class.yoga_studio_teacher.yoga_studio %>
         </div>
         <div class="studio-avatar">
-          <%= cl_image_tag @yoga_class.yoga_studio_teacher.yoga_studio.photos.first.key, class: "avatar" %>
+          <%= cl_image_tag @yoga_class.yoga_studio_teacher.yoga_studio.photos.first.key, class: "avatar-large" %>
         </div>
       </div>
       <div class="studio-card-body">
         <h3><%= @yoga_class.yoga_studio_teacher.yoga_studio.name %></h3>
         <p><%= @yoga_class.yoga_studio_teacher.yoga_studio.description %></p>
       </div>
+      <%= link_to "View Studio", yoga_class_path(@yoga_class), class: "btn-flat w-100" %>
     </div>
 
 
