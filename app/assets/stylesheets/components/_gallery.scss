@@ -1,0 +1,13 @@
+.carousel .slide, .d-block {
+  height: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid rgb(221, 221, 221);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+
+.overlay {
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  position: relative;
+  margin-top: -400px;
+}
