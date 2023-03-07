@@ -2,10 +2,11 @@
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 12px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-ghost:hover {
@@ -15,13 +16,24 @@
 .btn-flat {
   color: white !important;
   padding: 8px 24px !important;
-  border-radius: 20px !important;
+  border-radius: 12px !important;
   background:$third-color !important;
   border: none !important;
   transition: background 0.3s ease !important;
   font-family:$body-font !important;
   font-size:small !important;
+  text-decoration: none;
+  display: block;
+  text-align: center;
 }
+
+.btn-flat:hover {
+  background:none !important;
+  color:$third-color !important;
+  border: solid 1px $third-color !important;
+  padding: 7px 23px !important; // shrinking the padding, so that the button does not grow with the added border
+}
+
 .btn-font{
   font-family:$body-font;
   font-size:small;
@@ -31,19 +43,15 @@
   color: white;
   padding: 8px 30px;
   margin: 1px;
-  border-radius: 20px;
+  border-radius: 12px;
   background: none;
   border: solid  white 1px;
   transition: background 0.3s ease;
   font-family:$body-font;
   font-size:small;
+  text-decoration: none;
 }
 
-.btn-flat:hover {
-  background:none !important;
-  color:$third-color !important;
-  border: solid 1px $third-color !important;
-}
 
 .btn-login:hover {
   background:$third-color;
@@ -55,11 +63,12 @@
 .btn-gradient {
   color: white;
   padding: 8px 24px;
-  border-radius: 4px;
+  border-radius: 12px;
   font-weight: bold;
   background: linear-gradient(#167FFB, #0F60C4);
   transition: background 0.3s ease;
   border: 1px solid #0F60C4;
+  text-decoration: none;
 }
 
 .btn-gradient:hover {
@@ -69,17 +78,19 @@
 
 .btn-danger {
   color: white !important;
+  text-decoration: none;
 }
 
 .btn-edit{
   color: white !important;
   padding: 8px 24px !important;
-  border-radius: 20px !important;
+  border-radius: 12px !important;
   background:$sixth-color !important;
   border: none !important;
   transition: background 0.3s ease !important;
   font-family:$body-font !important;
   font-size:small !important;
+  text-decoration: none;
 }
 
 .btn-edit:hover {
@@ -89,31 +100,33 @@
 }
 
 .btn-delete{
-  color: white !important;
+  background:none !important;
+  color:$fifth-color !important;
   padding: 8px 24px !important;
-  border-radius: 20px !important;
-  background:$fifth-color !important;
-  border: none !important;
+  border-radius: 12px !important;
   transition: background 0.3s ease !important;
   font-family:$body-font !important;
   font-size:small !important;
+  text-decoration: none;
+  border: solid 1px $fifth-color !important;
 }
 
 .btn-delete:hover {
-  background:none !important;
-  color:$fifth-color !important;
-  border: solid 1px $fifth-color !important;
+  color: white !important;
+  background:$fifth-color !important;
+  border: none !important;
 }
 
 .btn-accept{
   color: white !important;
   padding: 8px 24px !important;
-  border-radius: 20px !important;
+  border-radius: 12px !important;
   background:$seventh-color !important;
   border: none !important;
   transition: background 0.3s ease !important;
   font-family:$body-font !important;
   font-size:small !important;
+  text-decoration: none;
 }
 
 .btn-accept:hover {
@@ -131,7 +144,7 @@
 
 .home-btn {
 	background-color:#dbe6c4;
-	border-radius:42px;
+	border-radius:12px;
 	display:inline-block;
 	cursor:pointer;
 	color:#757d6f;
@@ -147,4 +160,10 @@
 .home-btn:active {
 	position:relative;
 	top:1px;
+}
+
+.btn-booking {
+  display: block;
+  text-align: center;
+  font-size: 30px !important;
 }

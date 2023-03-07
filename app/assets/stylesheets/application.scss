@@ -11,3 +11,29 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  margin-top: 100px;
+}
+
+.rounded {
+  border-radius: 12px !important;
+}
+
+.shadowed {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+
+.third {
+  width: 33.33%;
+}
+
+.list-group-item:first-child {
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+
+.list-group-item:last-child {
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+}

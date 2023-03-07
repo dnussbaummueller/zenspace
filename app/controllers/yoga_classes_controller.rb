@@ -7,6 +7,7 @@ class YogaClassesController < ApplicationController
 
   def show
     @yoga_class = YogaClass.find(params[:id])
+    @booking = Booking.new(yoga_class: @yoga_class)
   end
 
   def new
