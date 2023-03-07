@@ -8,7 +8,7 @@ class YogaClassesController < ApplicationController
   def show
     @yoga_class = YogaClass.find(params[:id])
   end
-  
+
   def new
     @class = YogaClass.new
   end
