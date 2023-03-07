@@ -1,13 +1,7 @@
-<div class="form-control"><
-<%= simple_form_for [@teacher] do |t| %>
-
-  <%= t.label :name %>
-  <%= t.text_field :name %>
-
-  <%= t.label :description %>
-  <%= t.text_field :description %>
-
+<h1>Create a new teacher</h1>
+<%= simple_form_for (@teacher) do |t| %>
+  <%= t.input :name %>
+  <%= t.input :description %>
   <%= t.input :photos, as: :file, input_html: { multiple: true } %>
   <%= t.submit "Submit teacher", class: "btn btn-primary" %>
 <% end %>
-</div>

@@ -1,14 +1,10 @@
-<h1>Create a new studio</h1>
+<div class="mb-3">
+ <h1>Create a new studio</h1>
   <%= simple_form_for(@yoga_studio) do |y_s| %>
-    <%= y_s.label :name %>
-    <%= y_s.text_field :name %>
-
-    <%= y_s.label :address %>
-    <%= y_s.text_field :address %>
-
-    <%= y_s.label :description %>
-    <%= y_s.text_field :description %>
-
+    <%= y_s.input :name %>
+    <%= y_s.input :address %>
+    <%= y_s.input :description %>
     <%= y_s.input :photos, as: :file, input_html: { multiple: true } %>
     <%= y_s.submit "Submit class", class: "btn btn-primary" %>
   <% end %>
+</div>
