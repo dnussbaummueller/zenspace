@@ -56,7 +56,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_153745) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
     t.string "reviewable_type", null: false
     t.bigint "reviewable_id", null: false
     t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable"
