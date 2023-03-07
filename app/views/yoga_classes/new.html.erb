@@ -1,0 +1,23 @@
+<h1>Create a new class</h1>
+<%= simple_form_for(@class) do |c| %>
+  <%= c.label :name %>
+  <%= c.text_field :name %>
+
+  <%= c.label :price %>
+  <%= c.text_field :price %>
+
+  <%= c.label :description %>
+  <%= c.text_field :description %>
+
+  <%= c.label :start_time %>
+  <%= c.text_field :start_time %>
+
+  <%= c.label :end_time %>
+  <%= c.text_field :end_time %>
+
+  <%= c.label :capacity %>
+  <%= c.text_field :capacity %>
+
+  <%# <%= c.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= c.submit "Submit class", class: "btn btn-primary" %>
+<% end %>
