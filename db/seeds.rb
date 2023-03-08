@@ -133,7 +133,9 @@ yoga_class1 = YogaClass.create!(
   start_time: "2020-01-01 10:00:00",
   end_time: "2020-01-01 11:00:00",
   yoga_studio_teacher: yoga_studio_teacher1,
-  user: user1
+  user: user1,
+  style: "Hatha",
+  difficulty: "Beginner"
 )
 
 file = URI.open("https://www.praguemorning.cz/wp-content/uploads/2020/02/Screenshot-2020-02-17-at-13.43.16.png")
@@ -152,7 +154,9 @@ yoga_class2 = YogaClass.create!(
   start_time: "2020-01-01 10:00:00",
   end_time: "2020-01-01 11:00:00",
   yoga_studio_teacher: yoga_studio_teacher2,
-  user: user1
+  user: user1,
+  style: "Yin",
+  difficulty: "Intermediate"
 )
 
 file = URI.open("https://www.praguemorning.cz/wp-content/uploads/2020/02/Screenshot-2020-02-17-at-13.43.16.png")
@@ -171,7 +175,9 @@ yoga_class3 = YogaClass.create!(
   start_time: "2020-01-01 10:00:00",
   end_time: "2020-01-01 11:00:00",
   yoga_studio_teacher: yoga_studio_teacher3,
-  user: user1
+  user: user1,
+  style: "Kundalini",
+  difficulty: "Advanced"
 )
 
 file = URI.open("https://www.praguemorning.cz/wp-content/uploads/2020/02/Screenshot-2020-02-17-at-13.43.16.png")
@@ -190,7 +196,9 @@ yoga_class4 = YogaClass.create!(
   start_time: "2020-01-01 10:00:00",
   end_time: "2020-01-01 11:00:00",
   yoga_studio_teacher: yoga_studio_teacher4,
-  user: user1
+  user: user1,
+  style: "Ashtanga",
+  difficulty: "Beginner"
 )
 
 file = URI.open("https://www.praguemorning.cz/wp-content/uploads/2020/02/Screenshot-2020-02-17-at-13.43.16.png")

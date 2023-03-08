@@ -24,23 +24,13 @@
           <% end %>
           <h3>ZenSpace</h3>
         </div>
-        <%= simple_form_for :search, url: yoga_classes_path, method: :get do |f| %>
-          <div class="search-form-control  form-group d-flex flex-row">
-            <input class="form-control string required shadow-sm search-font rounded"  placeholder="Search for yoga studios" type="text" name="search[query]" id="search_query" />
-            <button name="button" type="submit" class="btn">
-              <i class="fas fa-search d-flex justify-content-center"></i>
-            </button>
-          </div>
-        <% end %>
+        <%= render "shared/search_bar" %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
-              <li class="nav-item active">
-                <a class="btn-login text-decoration-none m-1" href="#">Home</a>
-              </li>
               <li class="nav-item">
                 <a class="btn-login text-decoration-none m-1" href="#">Login</a>
               </li>

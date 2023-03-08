@@ -4,9 +4,8 @@ class YogaStudiosController < ApplicationController
     @yoga_studio = YogaStudio.find(params[:id])
     @review = Review.new
   end
-  
+
   def index
     @yoga_studios = YogaStudio.all
-    end
   end
 end
