@@ -10,10 +10,6 @@ class TeachersController < ApplicationController
     @teacher = Teacher.new
   end
 
-  def show
-    @teacher = Teacher.find(params[:id])
-  end
-
   def create
     @teacher = Teacher.new(teacher_params)
     @teacher.user = current_user
