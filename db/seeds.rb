@@ -625,32 +625,32 @@ yoga_studio_teacher14 = YogaStudioTeacher.create!(
 
 yoga_studio_teacher15 = YogaStudioTeacher.create!(
   yoga_studio: yoga_studio13,
-  teacher: yoga_studio_teacher9
+  teacher: teacher9
 )
 
 yoga_studio_teacher16 = YogaStudioTeacher.create!(
   yoga_studio: yoga_studio14,
-  teacher: yoga_studio_teacher8
+  teacher: teacher8
 )
 
 yoga_studio_teacher17 = YogaStudioTeacher.create!(
   yoga_studio: yoga_studio15,
-  teacher: yoga_studio_teacher7
+  teacher: teacher7
 )
 
 yoga_studio_teacher18 = YogaStudioTeacher.create!(
   yoga_studio: yoga_studio16,
-  teacher: yoga_studio_teacher6
+  teacher: teacher6
 )
 
 yoga_studio_teacher19 = YogaStudioTeacher.create!(
   yoga_studio: yoga_studio17,
-  teacher: yoga_studio_teacher5
+  teacher: teacher5
 )
 
 yoga_studio_teacher20 = YogaStudioTeacher.create!(
   yoga_studio: yoga_studio18,
-  teacher: yoga_studio_teacher4
+  teacher: teacher4
 )
 
 # Creating yoga Classes
@@ -723,7 +723,7 @@ yoga_class4 = YogaClass.create!(
   start_time: "2020-01-01 10:00:00",
   end_time: "2020-01-01 11:00:00",
   yoga_studio_teacher: yoga_studio_teacher4,
-  difficulty: "All levels",
+  difficulty: "All Levels",
   style: "Iyengar",
   user: user2
 )
@@ -849,7 +849,7 @@ yoga_class10.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", conten
 yoga_class10.save!
 
 yoga_class11 = YogaClass.create!(
-  name: "Pre-natal Yoga",
+  name: "Prenatal Yoga",
   description: "Prenatal yoga is an adaptable approach to exercise that engages the mind and spirit along with the body.
   Prenatal yoga focuses on gentle stretching and strengthening, mental centering, and developing greater awareness of the breath.",
   price: 30,
@@ -858,7 +858,7 @@ yoga_class11 = YogaClass.create!(
   end_time: "2020-01-01 11:00:00",
   yoga_studio_teacher: yoga_studio_teacher3,
   difficulty: "All Levels",
-  style: "Pre-natal",
+  style: "Prenatal",
   user: user3
 )
 
@@ -868,7 +868,7 @@ yoga_class11.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", conten
 yoga_class11.save!
 
 yoga_class12 = YogaClass.create!(
-  name: "Post-natal Yoga",
+  name: "Postnatal Yoga",
   description: "Postnatal yoga is a style of yoga that addresses the physical, mental and emotional challenges of being a new mother, as well as the aftermath of pregnancy.
   Yoga poses focus on helping new mothers tone their body and regain their figure, relieve stress and even bond with their newborn.",
   price: 30,
@@ -877,7 +877,7 @@ yoga_class12 = YogaClass.create!(
   end_time: "2020-01-01 11:00:00",
   yoga_studio_teacher: yoga_studio_teacher4,
   difficulty: "All Levels",
-  style: "Post-natal",
+  style: "Postnatal",
   user: user1
 )
 
