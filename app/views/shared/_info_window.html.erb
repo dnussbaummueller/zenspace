@@ -1,11 +1,11 @@
 <div class="">
   <div class="">
-    <div class="">
+    <div class="card-product card-category m-4 mapboxgl-popup-content">
       <%= link_to yoga_classes_path do %>
-        <%= cl_image_tag yoga_class.photos.first.key, class: "img-map shadow-sm p-3 m-3 bg-white rounded-3" %>
+        <%= cl_image_tag yoga_class.photos.first.key, class: "img-map shadow-sm rounded-3" %>
       <% end%>
       <h5 class="cards-product-infos text"><strong><%= yoga_class.name %></h5>
-      <p><%= yoga_class.description %></p>
+      <p class="cards-product-infos text"><%= yoga_class.description %></p>
     </div>
   </div>
 </div>
