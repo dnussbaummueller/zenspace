@@ -59,7 +59,7 @@ puts "Creating yoga studios..."
 yoga_studio1 = YogaStudio.create!(
   name: "Yoga Studio 1",
   description: "Yoga Studio 1 description",
-  address: "Yoga Studio 1 address",
+  address: "Krausenstraße 28, 10117 Berlin",
   user: user1
 )
 
@@ -74,7 +74,7 @@ yoga_studio1.save!
 yoga_studio2 = YogaStudio.create!(
   name: "Yoga Studio 2",
   description: "Yoga Studio 2 description",
-  address: "Yoga Studio 2 address",
+  address: "Boxhagener Str. 77, 10245 Berlin",
   user: user1
 )
 
