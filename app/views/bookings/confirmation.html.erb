@@ -1,9 +1,8 @@
 <div class="container">
   <div class="my-card">
     <h1>Your booking was successful.</h1>
-    <p>Thank you for booking with us. We look forward to seeing you at the class.</p>
 
-    <ul class="list-group list-group-flush border-top">
+    <ul class="list-group list-group-flush border-top border-bottom pb-3 mb-3">
             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
               Class
               <span><%= @booking.yoga_class.name %></span>
@@ -24,14 +23,10 @@
               Address
               <span><%= @booking.yoga_class.yoga_studio_teacher.yoga_studio.address %></span>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center border-top mt-3 border-0 px-0 mb-3" style="font-size:24px;">
-              <div>
-                <strong>Price</strong>
-              </div>
-              <span><strong><%= sprintf("%.2f", @booking.yoga_class.price) %>€</strong></span>
-            </li>
           </ul>
-
+        <div class="map">
+          <h2>Here comes the map</h2>
+        </div>
       <%= link_to "Back to all classes", yoga_classes_path, class: "btn-flat w-100" %>
 
   </div>

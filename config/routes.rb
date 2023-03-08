@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   # Path for confirmation page after the booking was successful
   get "bookings/:id/confirmation", to: "bookings#confirmation", as: :confirmation
+  resources :yoga_classes, only: [:index, :show, :new, :create]
+  get "/admin", to: "pages#admin"
 end

@@ -1,0 +1,11 @@
+<div class="">
+  <div class="">
+    <div class="">
+      <%= link_to yoga_classes_path do %>
+        <%= cl_image_tag yoga_class.photos.first.key, class: "img-map shadow-sm p-3 m-3 bg-white rounded-3" %>
+      <% end%>
+      <h5 class="cards-product-infos text"><strong><%= yoga_class.name %></h5>
+      <p><%= yoga_class.description %></p>
+    </div>
+  </div>
+</div>

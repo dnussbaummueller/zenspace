@@ -1,12 +1,11 @@
 
-<h1>hii</h1>
-<div class="container d-flex flex-direction-column space-between-around">
+<div class="container-md mt-5 d-flex flex-direction-column justify-content-center space-between-around align-middle">
     <div class="col">
-    <h1>ho</h1>
+    <h1></h1>
       <div class=" d-flex">
         <div class="cards float-end p-1 m-3 flex-grow-1">
           <% @yoga_classes.each do |yoga_class| %>
-            <div class="card-product shadow-sm rounded-4" data-aos="zoom-in">
+            <div class="card-product m-3 shadow-sm rounded-4" data-aos="zoom-in">
                 <%= link_to yoga_class do %>
                   <%= cl_image_tag yoga_class.photos[0].key, width:400,height:400, crop: :fill %>
                 <% end%>
@@ -14,8 +13,7 @@
                   <ul class="list-group list-group-flush p-1">
                     <li class="list-group-item p-1"> <h6><strong><%= yoga_class.name %></strong></h4></li>
                     <li class="list-group-item p-1"><i class="fa-solid fa-tag"></i> <strong><%= yoga_class.price %> </strong>€ per hour</li>
-                    <li class="list-group-item p-1"><i class="fa-solid fa-location-dot"></i><strong> <%= yoga_studio.address %> </strong></li>
-                    <li class="list-group-item p-1"><%= render 'partials/average_rating', yoga_class: yoga_class %> </li>
+                     <li class="list-group-item p-1"><strong><i class="fa-solid fa-location-dot"></i></strong> <%= yoga_class.yoga_studio_teacher.yoga_studio.address %> </strong></li>
                   </ul>
                 </div>
             </div>
@@ -24,11 +22,13 @@
       </div>
     </div>
     <div class="col m-5">
-       <div style="width: 50%; height:100vh; position:fixed; top: 80px;"
+      <div style="width: 100%; height:100vh; position:sticky; top: 90px; right:40px; z-index: 1;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-     </div>
-
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
     </div>
   </div>
+
+<%# '[{"lat": 51.5074, "lng": -0.1278, "info_window_html": "<p>London</p>"}, {"lat": 48.8566, "lng": 2.3522, "info_window_html": "<p>Paris</p>"}]' %>
