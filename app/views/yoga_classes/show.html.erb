@@ -14,11 +14,8 @@
   <%# class info + map container %>
   <div class="show-container d-flex justify-content-between mt-3">
     <%# Info Card: %>
-    <div class="info-card my-card third border-bottom flex-grow-1">
-      <div class="title-bar d-flex justify-content-between align-items-start border-bottom mb-3 pb-2">
-        <h2><%= @yoga_class.name %></h1>
-        <%# render 'partials/average_rating', yoga_studio: @yoga_studio %>
-      </div>
+    <div class="info-card my-card w-50">
+
       <div class="short-details border-bottom pb-2">
         <div class="d-flex justify-content-between">
           <p><i class="fa-solid fa-calendar-days"></i> <%= @yoga_class.start_time.strftime("%d of %B, %Y") %></p>
@@ -26,14 +23,18 @@
         </div>
         <div class="d-flex justify-content-between">
           <p><i class="fa-solid fa-user-group"></i> <%= (@yoga_class.capacity - @yoga_class.bookings.size) %> out of <%= @yoga_class.capacity %> spaces left</p>
-          <p><i class="fa-solid fa-tag"></i> <%= sprintf("%.2f", @yoga_class.price) %>€</p>
+          <p><i class="fa-solid fa-person"></i> <%= @yoga_class.difficulty %></p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><i class="fa-solid fa-hourglass-half"></i> <%= @yoga_class.duration_in_minutes %> minutes</p>
+          <p><i class="fa-solid fa-star"></i> <%= @yoga_class.style %></p>
         </div>
       </div>
       <p class="info-text mt-3"><%= @yoga_class.description %></p>
     </div>
 
     <%# Map Card: %>
-    <div class="map my-card">
+    <div class="my-card w-50">
       <p>Here comes the map</p>
     </div>
 

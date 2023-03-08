@@ -2,8 +2,14 @@ class YogaClassesController < ApplicationController
  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @yoga_classes = YogaClass.all
     @yoga_studios = YogaStudio.all
+
+    if params[:query].present?
+      @yoga_classes = YogaClass.global_search(params[:query])
+    else
+      @yoga_classes = YogaClass.all
+    end
+
     @markers = @yoga_classes.map do |yoga_class|
     {
       lat: yoga_class.yoga_studios.first.latitude,
