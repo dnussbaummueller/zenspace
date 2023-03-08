@@ -1,12 +1,13 @@
 class YogaStudiosController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
-  def index
-    @yoga_studios = YogaStudio.all
-  end
-
   def show
     @yoga_studio = YogaStudio.find(params[:id])
+    @review = Review.new
+  end
+
+  def index
+    @yoga_studios = YogaStudio.all
   end
 
   def new
