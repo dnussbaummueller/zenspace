@@ -1,5 +1,5 @@
 class YogaClassesController < ApplicationController
- skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @yoga_studios = YogaStudio.all
@@ -31,7 +31,7 @@ class YogaClassesController < ApplicationController
   def create
     @class = YogaClass.new(class_params)
     if @class.save
-      redirect_to yoga_classes_path(@class)
+      redirect_to yoga_classes_path
     else
       render yoga_class_path, status: :unprocessable_entity
     end

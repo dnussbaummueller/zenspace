@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
 
-  resources :yoga_studios, only: [:show] do
+  resources :yoga_studios, only: [:show, :index, :new, :create] do
     resources :reviews, only: [:create]
   end
 
