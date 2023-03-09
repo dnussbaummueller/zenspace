@@ -8,7 +8,8 @@ class YogaClassesController < ApplicationController
     {
       lat: yoga_class.yoga_studios.first.latitude,
       lng: yoga_class.yoga_studios.first.longitude,
-      info_window_html: render_to_string(partial: "shared/info_window", locals: { yoga_class: yoga_class })
+      info_window_html: render_to_string(partial: "shared/info_window", locals: { yoga_class: yoga_class }),
+      marker_html: render_to_string(partial: "marker")
     }
     end
   end
