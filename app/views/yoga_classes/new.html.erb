@@ -1,23 +1,32 @@
-<h1>Create a new class</h1>
-<%= simple_form_for(@class) do |c| %>
-  <%= c.label :name %>
-  <%= c.text_field :name %>
-
-  <%= c.label :price %>
-  <%= c.text_field :price %>
-
-  <%= c.label :description %>
-  <%= c.text_field :description %>
-
-  <%= c.label :start_time %>
-  <%= c.text_field :start_time %>
-
-  <%= c.label :end_time %>
-  <%= c.text_field :end_time %>
-
-  <%= c.label :capacity %>
-  <%= c.text_field :capacity %>
-
-  <%# <%= c.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= c.submit "Submit class", class: "btn btn-primary" %>
-<% end %>
+<div class="wrapper">
+ <div class="form-control bg-white p-5 rounded-4 border-0 shadow-sm">
+  <%= simple_form_for(@class) do |c| %>
+    <strong><h3 class="mb-4">Create a new yoga class</h3></strong>
+    <div class="wrap">
+      <%= c.input :name, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
+    </div>
+     <div class="wrap">
+      <%= c.input :price, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
+    </div>
+     <div class="wrap">
+      <%= c.input :description, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
+    </div>
+     <div class="wrap">
+      <%= c.input :start_time, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
+    </div>
+     <div class="wrap">
+      <%= c.input :end_time, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
+    </div>
+     <div class="wrap">
+      <%= c.input :capacity, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
+    </div>
+    <div class="wrap">
+      <%= c.input :photos, as: :file, input_html: {multiple: true} %>
+    </div>
+    <div class="d-flex justify-content-between">
+      <%= c.submit class:"btn-flat m-3 ml-0 " %>
+      <%= link_to "Back to all classes",  yoga_studios_path, class:"btn-flat m-3 mr-0 text-decoration-none" %>
+    </div>
+  <% end %>
+  </div>
+</div>

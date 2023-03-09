@@ -1,9 +1,15 @@
 class YogaClassesController < ApplicationController
- skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @yoga_classes = YogaClass.all
     @yoga_studios = YogaStudio.all
+
+    if params[:query].present?
+      @yoga_classes = YogaClass.global_search(params[:query])
+    else
+      @yoga_classes = YogaClass.all
+    end
+
     @markers = @yoga_classes.map do |yoga_class|
     {
       lat: yoga_class.yoga_studios.first.latitude,
@@ -26,7 +32,7 @@ class YogaClassesController < ApplicationController
   def create
     @class = YogaClass.new(class_params)
     if @class.save
-      redirect_to yoga_classes_path(@class)
+      redirect_to yoga_classes_path
     else
       render yoga_class_path, status: :unprocessable_entity
     end

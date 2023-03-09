@@ -36,7 +36,7 @@
       <% @yoga_studio.yoga_studio_teachers.each do |yoga_studio_relation| %>
 
         <%= link_to(teacher_path(yoga_studio_relation.teacher), class: "text-decoration-none") do %>
-          <div class="display-card rounded" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= cl_image_path yoga_studio_relation.yoga_studio.photos.first.key %>')">
+          <div class="display-card rounded" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= cl_image_path yoga_studio_relation.teacher.photos.first.key %>')">
             <%= yoga_studio_relation.teacher.name %>
           </div>
         <% end %>
