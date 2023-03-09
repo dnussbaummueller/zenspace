@@ -1,5 +1,6 @@
+<%= render 'shared/filter_bar' %>
 
-<div class="container-md mt-5 d-flex flex-direction-column justify-content-center space-between-around align-middle">
+<div class="d-flex flex-direction-column justify-content-center space-between-around align-middle">
     <div class="col">
     <h1></h1>
       <div class=" d-flex">
@@ -21,8 +22,8 @@
         </div>
       </div>
     </div>
-    <div class="col m-5">
-      <div style="width: 100%; height:100vh; position:sticky; top: 90px; right:40px; z-index: 1;"
+    <div class="col">
+      <div style="width: 100%; height:100vh; position:sticky; top:155px; z-index: -1;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
