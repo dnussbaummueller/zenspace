@@ -40,6 +40,7 @@
 
 .card-product {
   overflow: hidden;
+  max-width: 80vw;
   height: 200px;
   background:white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -48,13 +49,13 @@
 }
 
 .card-product:hover {
-  // box-shadow: 8px 12px 31px #515151;
+  box-shadow: 8px 12px 31px #515151;
   transform: scale(1.05) !important;
 
 }
 .card-product:hover li{
-  font-weight:100;
-  color:  rgb(70, 69, 69);
+  font-family: Merriweather;
+  color:  rgb(34, 34, 34);
 }
 .card-product-infos li{
   background: white ;
@@ -94,4 +95,37 @@
 
 #padding{
   padding-top: 85px;
+}
+
+.index-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+}
+
+.card img {
+  width: 150px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.index-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.info {
+  font-size: 16px;
+  margin-right: 20px;
 }
