@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :yoga_classes, only: [:index, :show, :new, :create] do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :show]
   end
 
   resources :teachers, only: [:show, :new, :create] do
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: [:destroy]
-  resources :bookings, only: [:show]
+  # resources :bookings, only: [:show]
 
   # Path for confirmation page after the booking was successful
   get "bookings/:id/confirmation", to: "bookings#confirmation", as: :confirmation

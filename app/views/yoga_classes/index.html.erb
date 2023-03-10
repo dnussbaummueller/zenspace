@@ -1,5 +1,8 @@
+<%= render 'shared/filter_bar' %>
 
-<div class="container-md rounded-5 mb-2 d-flex">
+
+<div class="d-flex flex-direction-column justify-content-center space-between-around align-middle">
+
     <div class="col">
       <div class=" d-flex">
         <div class="cards float-end p-1 m-3 flex-grow-1">
@@ -24,11 +27,17 @@
         </div>
       </div>
     </div>
-  <div class="col m-5">
-    <div class="rounded-4" style="width: 100%; height:100vh; position:sticky; top: 100px; right:40px; z-index: 1;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+
+    <div class="col">
+      <div style="width: 100%; height:100vh; position:sticky; top:155px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+    
+    
     </div>
   </div>
   </div>
