@@ -20,21 +20,25 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: $body-font;
+  font-family: $body-font !important;
+  background-color: white;
+  color: $first-color;
 }
 
 .map-container {
   max-width: 200px;
 }
  .img-map {
-  width: 60%;
-  max-height: 40%;
+  width: 70%;
+  max-height: 50%;
   justify-content: center;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
  }
 
  .img-map:hover + .card-product {
 
-  transform: scale(1.05);
+  transform: scale(1.05) !important;
 }
 
 text{

@@ -31,3 +31,4 @@ class YogaStudiosController < ApplicationController
     params.require(:yoga_studio).permit(:name, :address, :description)
   end
 end
+

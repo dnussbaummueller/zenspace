@@ -43,12 +43,12 @@
   color: white;
   padding: 8px 30px;
   margin: 1px;
-  border-radius: 12px;
+  border-radius: 15px;
   background: none;
   border: solid  white 1px;
   transition: background 0.3s ease;
   font-family:$body-font;
-  font-size:small;
+  font-size:medium;
   text-decoration: none;
 }
 
@@ -58,6 +58,8 @@
   color:$fourth-color;
   border: none;
   box-shadow: 1cap;
+  transition: 0.5s ease-in-out;
+  stroke-dashoffset: -480;
 }
 
 .btn-gradient {
@@ -170,4 +172,19 @@
 
 .btn-reset {
   padding-top: 10px !important;
+ }
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
 }
