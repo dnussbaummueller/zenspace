@@ -1,7 +1,7 @@
 <div class="container">
 
   <%# first row for info and photo %>
-  <div class="show-container d-flex justify-content-between mt-3 flex-grow-1">
+  <div class="show-container d-flex justify-content-between mt-3 flex-grow-1" style="max-height: 400px;">
 
     <%# info card %>
     <div class="my-card w-50">
@@ -10,7 +10,7 @@
       <p class="mt-3"><%= @yoga_studio.description %></p>
     </div>
     <%# photo %>
-      <%= cl_image_tag @yoga_studio.photos.first.key, class: "rounded shadowed w-50 mb-3" %>
+      <%= cl_image_tag @yoga_studio.photos.first.key, class: "rounded shadowed w-50 mb-3", style:"object-fit: cover; object-position: top;" %>
   </div>
 
   <%# card for classes %>

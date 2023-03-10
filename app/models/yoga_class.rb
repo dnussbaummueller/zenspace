@@ -3,8 +3,8 @@ class YogaClass < ApplicationRecord
   pg_search_scope :global_search,
   against: [:name, :description, :style, :difficulty],
   associated_against: {
-    yoga_studios: [:name, :description, :address],
-    teachers: [:name, :description]
+    yoga_studio: [:name, :description, :address],
+    teacher: [:name, :description]
   },
   using: {
     tsearch: { prefix: true }

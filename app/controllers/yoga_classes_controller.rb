@@ -3,7 +3,7 @@ class YogaClassesController < ApplicationController
 
   def index
     @yoga_studios = YogaStudio.all
-
+    @yoga_classes = YogaClass.all
     # Search bar
     if params[:query].present?
       @yoga_classes = YogaClass.global_search(params[:query])
@@ -82,8 +82,8 @@ class YogaClassesController < ApplicationController
       {
         lat: yoga_class.yoga_studio.latitude,
         lng: yoga_class.yoga_studio.longitude,
-        info_window_html: render_to_string(partial: "shared/info_window", locals: { yoga_class: yoga_class })
-        marker_html: render_to_string(partial: "marker")
+        info_window_html: render_to_string(partial: "shared/info_window", locals: { yoga_class: yoga_class }),
+        marker_html: render_to_string(partial: "shared/marker")
       }
     end
   end
@@ -96,7 +96,8 @@ class YogaClassesController < ApplicationController
       {
         lat: yoga_class.yoga_studio.latitude,
         lng: yoga_class.yoga_studio.longitude,
-        info_window_html: render_to_string(partial: "shared/show_window", locals: { yoga_class: yoga_class })
+        info_window_html: render_to_string(partial: "shared/show_window", locals: { yoga_class: yoga_class }),
+        marker_html: render_to_string(partial: "shared/marker")
       }
     end
   end
