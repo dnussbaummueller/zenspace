@@ -2,8 +2,8 @@
   <div class="">
     <div>
       <%= link_to yoga_class do %>
-        <% if yoga_class.photos.attached? %>
-          <%= cl_image_tag yoga_class.photos.first.key, class: "img-map shadow-sm  m-3 bg-white rounded-4" %>
+        <% if yoga_class.photo.attached? %>
+         <%= cl_image_tag yoga_class.photo.key, class: "img-map shadow-sm  m-3 bg-white rounded-4" %>
         <% end %>
       <%end%>
       <h5 class="cards-product-info "><strong><%= yoga_class.name %></h5>

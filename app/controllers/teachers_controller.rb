@@ -1,5 +1,8 @@
 class TeachersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
+  def index
+    @teachers = Teacher.all
+  end
 
   def show
     @teacher = Teacher.find(params[:id])
@@ -15,11 +18,12 @@ class TeachersController < ApplicationController
     @teacher.user = current_user
     @teacher.save
     redirect_to teacher_path(@teacher)
+
   end
 
   private
 
   def teacher_params
-    params.require(:teacher).permit(:name, :description)
+    params.require(:teacher).permit(:name, :description, photos: [])
   end
 end

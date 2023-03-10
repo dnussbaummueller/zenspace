@@ -11,7 +11,9 @@
       <p class="mt-3"><%= @teacher.description %></p>
     </div>
     <%# photo %>
-      <%= cl_image_tag @teacher.photos.first.key, class: "rounded shadowed w-50 mb-3", style:"object-fit: cover; object-position: top;" %>
+      <% if @teacher.photos.attached? %>
+        <%= cl_image_tag @teacher.photos.first.key, class: "rounded shadowed w-50 mb-3", style:"object-fit: cover; object-position: top;" %>
+      <% end %>
   </div>
 
   <%# card for classes %>

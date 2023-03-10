@@ -287,8 +287,6 @@ SimpleForm.setup do |config|
       bb.optional :hint, wrap_with: { class: 'form-text' }
     end
   end
-
-
   # bootstrap custom forms
   #
   # custom input switch for boolean
@@ -351,8 +349,6 @@ SimpleForm.setup do |config|
     b.use :full_error, wrap_with: { class: 'invalid-feedback' }
     b.use :hint, wrap_with: { class: 'form-text' }
   end
-
-
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :vertical_form
 

@@ -1,6 +1,6 @@
 <div class="container">
   <%# Photo Carousel: %>
-  <%= cl_image_tag @yoga_class.photos.first.key, class: "carousel-slide d-block w-100" %>
+  <%= cl_image_tag @yoga_class.photo.key, class: "carousel-slide d-block w-100" %>
   <div class="overlay carousel-slide w-100 d-flex justify-content-center align-items-center">
     <h1 class="text-white"><%= @yoga_class.name %></h1>
   </div>

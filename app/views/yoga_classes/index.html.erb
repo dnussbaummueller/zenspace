@@ -4,27 +4,39 @@
 <div class="d-flex flex-direction-column justify-content-center space-between-around align-middle">
 
     <div class="col">
-      <div class=" d-flex">
-        <div class="cards float-end p-1 m-3 flex-grow-1">
+      <div class=" d-flex align-items: stretch ">
+        <div class="cards">
           <% @yoga_classes.each do |yoga_class| %>
-            <div class="card-product shadow-sm rounded-4" data-aos="zoom-in">
-                <%= link_to yoga_class do %>
-                 <% if yoga_class.photos.attached? %>
-                  <%= cl_image_tag yoga_class.photos[0].key, width:400,height:400, crop: :fill %>
-                  <% end%>
+
+
+            <div class="card-product  shadow-sm rounded-4" data-aos="zoom-in">
+                <%= link_to yoga_class, class: "h-100" do %>
+                  <% if yoga_class.photo.attached? %>
+                     <%= cl_image_tag yoga_class.photo.key, class: "" %>
+                  <% end %>
                 <%end%>
-                <div class="card-product-infos float-md-start">
-                  <ul class="list-group list-group-flush p-1 ">
+              <div class="container">
+                <div class=" border-bottom m-2"> <h4><%= yoga_class.name %></h4></div>
+                    <div class="d-flex justify-content-between align-items-end m-2">
+                      <p class="m-1"><i class="fa-solid fa-location-dot"></i> <%= yoga_class.yoga_studio_teacher.yoga_studio.address %> </strong></p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-end m-2">
+                      <p class="m-1"><i class="fa-solid fa-tag"></i> <strong><%= yoga_class.price %> Euros </strong></p>
+                      <p class="m-1"><i class="fa-solid fa-user-group"></i> <%= (yoga_class.capacity - yoga_class.bookings.size) %> out of <%= yoga_class.capacity %> spaces left</p>
 
-                      <li class="list-group-item p-1"> <h6><strong><%= yoga_class.name %></strong></h4></li>
-                      <li class="list-group-item p-1"><strong><i class="fa-solid fa-location-dot"></i></strong> <%= yoga_class.yoga_studio_teacher.yoga_studio.address %> </strong></li>
-                      <li class="list-group-item p-1"><i class="fa-solid fa-tag"></i> <strong><%= yoga_class.price %> </strong>€ per hour</li>
-                      <li class="list-group-item p-1"><i class="fa-solid fa-hourglass-start"></i>  <strong><%= yoga_class.start_time %> </strong></li>
-                      <li class="list-group-item p-1"><i class="fa-solid fa-hourglass-end"></i>  <strong><%= yoga_class.end_time %> </strong></li>
-
-                  </ul>
+                    </div>
+                    <div class="d-flex justify-content-between m-2">
+                      <p class="m-1"><i class="fa-solid fa-calendar-days"></i> <%= yoga_class.start_time.strftime("%d of %B, %Y") %></p>
+                      <p class="m-1"><i class="fa-solid fa-clock"></i> <%= yoga_class.start_time.strftime("%k:%M") %> - <%= yoga_class.end_time.strftime("%k:%M") %></p>
+                    </div>
+                     <div class="d-flex justify-content-between m-2">
+                      <p class="m-1"><i class="fa-solid fa-person"></i> <%= yoga_class.difficulty %></p>
+                      <p class="m-1"><i class="fa-solid fa-star"></i> <%= yoga_class.style %></p>
+                    </div>
                 </div>
-            </div>
+              </div>
+
+
           <% end %>
         </div>
       </div>

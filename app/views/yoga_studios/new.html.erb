@@ -1,23 +1,5 @@
-<div class="wrapper">
- <div class="form-control bg-white p-5 rounded-4 border-0 shadow-sm">
-  <%= simple_form_for(@yoga_studio) do |y_s| %>
-    <strong><h3 class="mb-4">Create a new studio</h3></strong>
-    <div class="wrap">
-      <%= y_s.input :name, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class'}%>
-    </div>
-     <div class="wrap">
-      <%= y_s.input :address, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class'}%>
-    </div>
-     <div class="wrap">
-      <%= y_s.input :description, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class'}%>
-    </div>
-    <div class="wrap">
-      <%= y_s.input :photos, as: :file, input_html: {multiple: true} %>
-    </div>
-    <div class="d-flex justify-content-between">
-      <%= y_s.submit class:"btn-flat m-3 ml-0 " %>
-      <%= link_to "Back to all classes",  yoga_studios_path, class:"btn-flat m-3 mr-0 text-decoration-none" %>
-    </div>
-  <% end %>
+<div class="container">
+  <div class="mb-3 d-flex justify-content-md-around">
+    <%= render "yoga_studios/form", yoga_studio: @yoga_studio %>
   </div>
 </div>
