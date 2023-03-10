@@ -9,8 +9,10 @@
           <% @yoga_classes.each do |yoga_class| %>
             <div class="card-product shadow-sm rounded-4" data-aos="zoom-in">
                 <%= link_to yoga_class do %>
+                 <% if yoga_class.photos.attached? %>
                   <%= cl_image_tag yoga_class.photos[0].key, width:400,height:400, crop: :fill %>
-                <% end%>
+                  <% end%>
+                <%end%>
                 <div class="card-product-infos float-md-start">
                   <ul class="list-group list-group-flush p-1 ">
 
@@ -36,8 +38,8 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    
-    
+
+
     </div>
   </div>
   </div>
