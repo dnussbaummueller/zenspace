@@ -1,6 +1,6 @@
 <div class="filter-bar border-bottom pb-2 pt-2">
   <div class="container">
-    <%= form_tag yoga_classes_path, method: :get, class: "dropdown" do %>
+    <%= form_tag yoga_classes_path, method: :get, class: "dropdown filters" do %>
 
     <%# Start of filter bar form %>
 
@@ -98,26 +98,21 @@
         Distance
       </button>
       <div class="dropdown-menu p-3" aria-labelledby="distance-dropdown">
-        <%= form_tag yoga_classes_path, method: :get do %>
-          <div class="form-group">
-            <%= label_tag "address", "Address", class: "form-label" %>
-            <%= text_field_tag "address", params[:address], class: "form-control", type: "text", placeholder: "Enter address" %>
-          </div>
-          <div class="form-group">
-            <%= label_tag "max_distance", "Max Distance (km)", class: "form-label" %>
-            <%= text_field_tag "max_distance", params[:max_distance], class: "form-control", type: "number", min: 0, step: 1, pattern: "[0-9]*", onkeypress: "return event.charCode >= 48 && event.charCode <= 57" %>
-          </div>
-          <div class="form-group">
-            <%= submit_tag "Filter", class: "btn btn-primary" %>
-          </div>
-        <% end %>
+        <div class="form-group">
+          <%= label_tag "address", "Address", class: "form-label" %>
+          <%= text_field_tag "address", params[:address], class: "form-control", type: "text" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag "max_distance", "Max Distance (km)", class: "form-label" %>
+          <%= text_field_tag "max_distance", params[:max_distance], class: "form-control", type: "number", min: 0, step: 1, pattern: "[0-9]*", onkeypress: "return event.charCode >= 48 && event.charCode <= 57" %>
+        </div>
       </div>
 
 
 
     <%# End of filter bar form %>
     <%= submit_tag "Filter", class: "btn-flat" %>
-    <%= link_to "Reset Filters", yoga_classes_path, class: "btn-delete" %>
+    <%= link_to "Reset Filters", yoga_classes_path, class: "btn-delete btn-reset" %>
     <% end %>
   </div>
 </div>

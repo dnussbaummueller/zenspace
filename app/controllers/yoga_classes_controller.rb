@@ -12,55 +12,76 @@ class YogaClassesController < ApplicationController
     end
 
     # Style filter
-    @yoga_classes = @yoga_classes.where(style: params[:style]) if params[:style].present?
+    if params[:style].present?
+      if @yoga_classes.respond_to?(:where)
+        @yoga_classes = @yoga_classes.where(style: params[:style])
+      else
+        @yoga_classes = @yoga_classes.select { |yoga_class| yoga_class.style == params[:style] }
+      end
+      @yoga_classes = [] unless @yoga_classes.present?
+    end
+
     # Difficulty filter
-    @yoga_classes = @yoga_classes.where(difficulty: params[:difficulty]) if params[:difficulty].present?
+    if params[:difficulty].present?
+      if @yoga_classes.respond_to?(:where)
+        @yoga_classes = @yoga_classes.where(difficulty: params[:difficulty])
+      else
+        @yoga_classes = @yoga_classes.select { |yoga_class| yoga_class.difficulty == params[:difficulty] }
+      end
+      @yoga_classes = [] unless @yoga_classes.present?
+    end
+
     # Duration filter
     if params[:duration_min].present? && params[:duration_max].present?
-      @yoga_classes = @yoga_classes.select { |yoga_class| yoga_class.duration_in_minutes.between?(params[:duration_min].to_i, params[:duration_max].to_i) }
+      if @yoga_classes.respond_to?(:select)
+        @yoga_classes = @yoga_classes.select { |yoga_class| yoga_class.duration_in_minutes.between?(params[:duration_min].to_i, params[:duration_max].to_i) }
+      else
+        @yoga_classes = @yoga_classes.select { |yoga_class| yoga_class.duration_in_minutes.between?(params[:duration_min].to_i, params[:duration_max].to_i) } unless @yoga_classes.nil?
+      end
     end
+
     # Price filter
     if params[:price_min].present? && params[:price_max].present?
-      @yoga_classes = @yoga_classes.where(price: params[:price_min].to_f..params[:price_max].to_f)
+      if @yoga_classes.respond_to?(:where)
+        @yoga_classes = @yoga_classes.where(price: params[:price_min].to_f..params[:price_max].to_f)
+      else
+        @yoga_classes = @yoga_classes.select { |yoga_class| yoga_class.price.between?(params[:price_min].to_f, params[:price_max].to_f) } unless @yoga_classes.nil?
+      end
     end
-
-
-
-
-
-
 
     # Distance filter
     if params[:address].present? && params[:max_distance].present?
-      # Geocode the user's input address to get the latitude and longitude
-      results = Geocoder.search(params[:address])
-      if results.present?
-        latitude = results.first.latitude
-        longitude = results.first.longitude
-        # Find yoga classes within the max distance from the user's input address
-        @yoga_classes = YogaStudio.geocoded.near([latitude, longitude], params[:max_distance]).map(&:yoga_classes).flatten.uniq
+      if @yoga_classes.respond_to?(:near)
+        # Geocode the user's input address to get the latitude and longitude
+        results = Geocoder.search(params[:address])
+        if results.present?
+          latitude = results.first.latitude
+          longitude = results.first.longitude
+          # Find yoga classes within the max distance from the user's input address
+          @yoga_classes = YogaStudio.geocoded.near([latitude, longitude], params[:max_distance]).map(&:yoga_classes).flatten.uniq
+        end
+      else
+        @yoga_classes = @yoga_classes.select { |yoga_class| yoga_class.yoga_studio.distance_to(params[:address]) <= params[:max_distance].to_f } unless @yoga_classes.nil?
+      end
+    end
+
+    # Time filter
+    if params[:start_date].present? && params[:end_date].present?
+      if @yoga_classes.respond_to?(:where)
+        start_time = DateTime.parse(params[:start_date])
+        end_time = DateTime.parse(params[:end_date])
+        @yoga_classes = @yoga_classes.where(start_time: start_time..end_time)
+      else
+        @yoga_classes = @yoga_classes.select { |yoga_class| yoga_class.start_time.between?(params[:start_date], params[:end_date]) } unless @yoga_classes.nil?
       end
     end
 
 
-
-
-
-
-
-
-    # Time filter
-    if params[:start_date].present? && params[:end_date].present?
-      start_time = DateTime.parse(params[:start_date])
-      end_time = DateTime.parse(params[:end_date])
-      @yoga_classes = @yoga_classes.where(start_time: start_time..end_time)
-    end
-
     # Map markers
     @markers = @yoga_classes.map do |yoga_class|
       {
-        lat: yoga_class.yoga_studios.first.latitude,
-        lng: yoga_class.yoga_studios.first.longitude,
+        lat: yoga_class.yoga_studio.latitude,
+        lng: yoga_class.yoga_studio.longitude,
         info_window_html: render_to_string(partial: "shared/info_window", locals: { yoga_class: yoga_class })
       }
     end
@@ -69,6 +90,14 @@ class YogaClassesController < ApplicationController
   def show
     @yoga_class = YogaClass.find(params[:id])
     @booking = Booking.new(yoga_class: @yoga_class)
+    @yoga_classes = [@yoga_class]
+    @markers = @yoga_classes.map do |yoga_class|
+      {
+        lat: yoga_class.yoga_studio.latitude,
+        lng: yoga_class.yoga_studio.longitude,
+        info_window_html: render_to_string(partial: "shared/show_window", locals: { yoga_class: yoga_class })
+      }
+    end
   end
 
   def new
