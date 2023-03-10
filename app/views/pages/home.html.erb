@@ -1,33 +1,35 @@
 <!-- Hero -->
-<div class="p-5 text-center bg-image rounded-3" style="background-image: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'); height: 100vh; width: 100vw">
-<!-- Log in button -->
-<%= link_to "Login", new_user_session_path, class: "text-decoration-none btn-login-home btn-login", style: "position: absolute !important; right: 80px !important;"%>
-<!-- Log in button -->
-    <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="text-light">
-        <h1 class="mb-3">ZenSpace</h1>
-        <!-- Slogan text animation -->
-         <p class="mb-3">Find your <span class="mov"> </span></p>
-         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-          <script>
-            var typed = new Typed(".mov",{
-            strings: [," Next Class",  " Yoga Studio"," New Favorite Teacher"," Zen"] ,
-            typeSpeed: 80,
-            backSpeed: 60,
-            loop: true
-          })
-          </script>
-        <!-- Slogan text animation -->
-        <!-- Search Bar #TODO: Add loop so search redirects to results -->
-          <div class="search-form-control form-group d-flex flex-row">
-            <input class="form-control string required shadow-sm rounded-pill search-font"  placeholder="Search for Yoga Classes" type="text" name="search[query]" id="search_query" />
-            <button name="button" type="submit" class="btn">
-              <i class="fas fa-search d-flex justify-content-center"></i>
-            </button>
+<div class="p-5 text-center bg-image rounded-3" style="background-image: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'); height: 100vh; width: 100vw; margin-top: -100px;">
+  <div style="background-color: rgba(0,0,0,0.5); width: 100vw; height: 100vh; position: absolute; top: 0px; left:0px;">
+    <!-- Log in button -->
+    <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "text-decoration-none btn-login-home btn-login", style: "position: absolute; right: 30px; top: 25px;" %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "text-decoration-none btn-login-home btn-login", style: "position: absolute; right: 30px; top: 25px;"%>
+    <% end %>
+    <!-- Log in button -->
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-light" style="width: 800px;">
+          <!-- Slogan text animation -->
+          <h1 class="mb-4">Find Your Next <span class="mov"> </span></h1>
+          <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+            <script>
+              var typed = new Typed(".mov",{
+              strings: [,"Hatha Yoga Class", "Vinyasa Yoga Class", "Ashtanga Yoga Class", "Iyengar Yoga Class", "Hot Yoga Class", "Kundalini Yoga Class", "Restorative Yoga Class", "Yin Yoga Class"],
+              typeSpeed: 80,
+              backSpeed: 60,
+              loop: true
+            })
+            </script>
+          <!-- Slogan text animation -->
+          <!-- Search Bar #TODO: Add loop so search redirects to results -->
+          <div class="w-75 margin-auto">
+            <%= render "shared/search_bar" %>
           </div>
-        <!-- Search Bar -->
+          <!-- Search Bar -->
+        </div>
       </div>
-    </div>
+  </div>
 </div>
 <!-- Hero -->
 <!-- Most Popular Studios + cards -->

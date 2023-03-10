@@ -670,7 +670,7 @@ yoga_class1 = YogaClass.create!(
   user: user1
 )
 
-file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk6oun5pM3u02UjG3jtXFWb9BnXzHxcr9cOQ&usqp=CAU")
+file = URI.open("https://30-tage-yoga.de/wp-content/uploads/2021/01/hatha-yoga.jpg")
 yoga_class1.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class1.save!
@@ -906,7 +906,7 @@ yoga_class13.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content
 
 yoga_class13.save!
 
-# Creating bookings
+# # Creating bookings
 puts "Creating bookings..."
 
 booking1 = Booking.create!(

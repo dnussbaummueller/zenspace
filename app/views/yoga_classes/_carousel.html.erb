@@ -7,12 +7,12 @@
   <div class="carousel-inner">
 
     <div class="carousel-item active">
-        <%= cl_image_tag yoga_class.photos.first.key, class: "d-block w-100" %>
+        <%= cl_image_tag yoga_class.photos.first.key, class: "carousel-slide d-block w-100" %>
       </div>
 
     <% yoga_class.photos.drop(1).each do |photo| %>
       <div class="carousel-item">
-        <%= cl_image_tag photo.key, class: "d-block w-100" %>
+        <%= cl_image_tag photo.key, class: "carousel-slide d-block w-100" %>
       </div>
     <% end %>
 

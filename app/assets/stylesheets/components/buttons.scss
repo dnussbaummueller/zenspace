@@ -23,7 +23,7 @@
   font-family:$body-font !important;
   font-size:small !important;
   text-decoration: none;
-  display: block;
+  // display: block;
   text-align: center;
 }
 
@@ -170,6 +170,10 @@
   font-size: 30px !important;
 }
 
+.btn-reset {
+  padding-top: 10px !important;
+ }
+
 svg {
   position: absolute;
   left: 0;
@@ -180,7 +184,6 @@ svg {
   stroke-dashoffset: 150;
   transition: 1s ease-in-out;
 }
-
 
 .btn:hover svg {
   stroke-dashoffset: -480;

@@ -2,7 +2,7 @@
 <div class="container">
 
   <%# first row for info and photo %>
-  <div class="show-container d-flex justify-content-between mt-3 flex-grow-1">
+  <div class="show-container d-flex justify-content-between mt-3 flex-grow-1" style="max-height: 400px;">
 
     <%# info card %>
     <div class="my-card w-50">
@@ -12,8 +12,8 @@
     </div>
     <%# photo %>
       <% if @teacher.photos.attached? %>
-      <%= cl_image_tag @teacher.photos.first.key, class: "rounded shadowed w-50 mb-3" %>
-    <% end %>
+        <%= cl_image_tag @teacher.photos.first.key, class: "rounded shadowed w-50 mb-3", style:"object-fit: cover; object-position: top;" %>
+      <% end %>
   </div>
 
   <%# card for classes %>
