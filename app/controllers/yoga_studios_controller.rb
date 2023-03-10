@@ -3,6 +3,7 @@ class YogaStudiosController < ApplicationController
 
   def show
     @yoga_studio = YogaStudio.find(params[:id])
+
     @review = Review.new
   end
 
@@ -18,7 +19,6 @@ class YogaStudiosController < ApplicationController
     @yoga_studio = YogaStudio.new(studio_params)
     @yoga_studio.user = current_user
     if @yoga_studio.save
-
       redirect_to yoga_studio_path(@yoga_studio)
     else
       render yoga_studios_path, status: :unprocessable_entity
@@ -28,7 +28,6 @@ class YogaStudiosController < ApplicationController
   private
 
   def studio_params
-    params.require(:yoga_studio).permit(:name, :address, :description)
+    params.require(:yoga_studio).permit(:name, :address, :description, photos: [])
   end
 end
-

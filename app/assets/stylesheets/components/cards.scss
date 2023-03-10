@@ -62,10 +62,11 @@
   color: $first-color;
 }
 .card-product img {
+  width:250px;
   height: 100%;
-  width: 210px;
   object-fit: cover;
 }
+
 
 .card-product h2 {
   font-size: 16px;
@@ -128,4 +129,8 @@
 .info {
   font-size: 16px;
   margin-right: 20px;
+}
+
+.yoga-class-address {
+  margin: left 10px;; /* Align the address information to the right */
 }

@@ -26,21 +26,25 @@ class YogaClassesController < ApplicationController
   end
 
   def new
-    @class = YogaClass.new
+    @yoga_class = YogaClass.new
+    @yoga_class.yoga_studio_ids = []
   end
 
   def create
-    @class = YogaClass.new(class_params)
-    if @class.save
-      redirect_to yoga_classes_path
+    @yoga_class = YogaClass.new(yoga_class_params)
+    @yoga_class.user = current_user
+    @yoga_studio_teacher = YogaStudioTeacher.create!(yoga_studio_id: params[:yoga_class][:yoga_studio].to_i, teacher_id: params[:yoga_class][:teacher].to_i)
+    @yoga_class.yoga_studio_teacher = @yoga_studio_teacher
+    if @yoga_class.save
+      redirect_to yoga_classes_path, notice: "Yoga class was successfully created."
     else
-      render yoga_class_path, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
-  def class_params
-    params.require(:class).permit(:name, :price, :description, :start_time, :end_time, :capacity)
+  def yoga_class_params
+    params.require(:yoga_class).permit(:name, :price, :description, :difficulty, :style, :start_time, :end_time, :capacity, :photo, :yoga_studio, :teacher)
   end
 end

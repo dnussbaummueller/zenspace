@@ -1,32 +1,5 @@
-<div class="wrapper">
- <div class="form-control bg-white p-5 rounded-4 border-0 shadow-sm">
-  <%= simple_form_for(@class) do |c| %>
-    <strong><h3 class="mb-4">Create a new yoga class</h3></strong>
-    <div class="wrap">
-      <%= c.input :name, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
-    </div>
-     <div class="wrap">
-      <%= c.input :price, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
-    </div>
-     <div class="wrap">
-      <%= c.input :description, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
-    </div>
-     <div class="wrap">
-      <%= c.input :start_time, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
-    </div>
-     <div class="wrap">
-      <%= c.input :end_time, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
-    </div>
-     <div class="wrap">
-      <%= c.input :capacity, :label_html => { :class => 'label-class' }, :input_html => { :class => 'input-class' }%>
-    </div>
-    <div class="wrap">
-      <%= c.input :photos, as: :file, input_html: {multiple: true} %>
-    </div>
-    <div class="d-flex justify-content-between">
-      <%= c.submit class:"btn-flat m-3 ml-0 " %>
-      <%= link_to "Back to all classes",  yoga_studios_path, class:"btn-flat m-3 mr-0 text-decoration-none" %>
-    </div>
-  <% end %>
+<div class="container">
+  <div class="mb-3 d-flex justify-content-md-around">
+    <%= render "yoga_classes/form", yoga_class: @yoga_class %>
   </div>
 </div>

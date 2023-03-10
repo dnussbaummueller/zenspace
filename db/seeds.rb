@@ -671,7 +671,7 @@ yoga_class1 = YogaClass.create!(
 )
 
 file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk6oun5pM3u02UjG3jtXFWb9BnXzHxcr9cOQ&usqp=CAU")
-yoga_class1.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class1.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class1.save!
 
@@ -690,7 +690,7 @@ yoga_class2 = YogaClass.create!(
 )
 
 file = URI.open("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/vinyasa-yoga-1632415154.jpg?crop=0.8893333333333334xw:1xh;center,top&resize=1200:*")
-yoga_class2.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class2.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class2.save!
 
@@ -710,7 +710,7 @@ yoga_class3 = YogaClass.create!(
 )
 
 file = URI.open("https://omstars.com/blog/wp-content/uploads/2018/02/Kino-MacGregor-Ashtanga-Immersion-3-scaled.jpeg")
-yoga_class3.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class3.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class3.save!
 
@@ -729,7 +729,7 @@ yoga_class4 = YogaClass.create!(
 )
 
 file = URI.open("https://upload.wikimedia.org/wikipedia/commons/5/56/Schulterstand-mit-stuhl-iyengar-yoga-2020.jpg")
-yoga_class4.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class4.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class4.save!
 
@@ -748,7 +748,7 @@ yoga_class5 = YogaClass.create!(
 )
 
 file = URI.open("https://www.verywellfit.com/thmb/cEKeM7uQ0ti3Cvxnrro8pg3ig40=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1339242968-47adc76d745c4d9c824497799562c94c.jpg")
-yoga_class5.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class5.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class5.save!
 
@@ -767,7 +767,7 @@ yoga_class6 = YogaClass.create!(
 )
 
 file = URI.open("https://yogapractice.com/wp-content/uploads/2020/09/Kundalini-Yoga-Everything-You-Need-To-Know.jpg")
-yoga_class6.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class6.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class6.save!
 
@@ -786,7 +786,7 @@ yoga_class7 = YogaClass.create!(
 )
 
 file = URI.open("https://images.squarespace-cdn.com/content/v1/61109caadec7201876451105/2e86c4c7-2985-4cf7-ba71-7448ff71182f/0446.jpg")
-yoga_class7.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class7.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class7.save!
 
@@ -805,7 +805,7 @@ yoga_class8 = YogaClass.create!(
 )
 
 file = URI.open("https://utopia.de/app/uploads/2021/01/yin-yoga-cc0-pixabay-stocksnap-190318.jpg")
-yoga_class8.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class8.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class8.save!
 
@@ -825,7 +825,7 @@ yoga_class9 = YogaClass.create!(
 )
 
 file = URI.open("https://wp-test-dev.s3.amazonaws.com/public/uploads/2020/12/Yoga_da-kuk.jpg")
-yoga_class9.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class9.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class9.save!
 
@@ -844,7 +844,7 @@ yoga_class10 = YogaClass.create!(
 )
 
 file = URI.open("https://assets.yogaescapes.de/fileadmin/_processed_/1817942950/Zj0lMkZ1c2VyX3VwbG9hZCUyRmFudXNhcmEteW9nYS1hYmxhdWYuanBn/")
-yoga_class10.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class10.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class10.save!
 
@@ -863,7 +863,7 @@ yoga_class11 = YogaClass.create!(
 )
 
 file = URI.open("https://www.besthealthmag.ca/wp-content/uploads/2020/02/prenatal-yga-poses.jpg?resize=700,466")
-yoga_class11.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class11.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class11.save!
 
@@ -882,7 +882,7 @@ yoga_class12 = YogaClass.create!(
 )
 
 file = URI.open("https://www.epyogaeugene.com/wp-content/uploads/2022/03/postnatal_mum_baby_yoga-1024x576-1.png")
-yoga_class12.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class12.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class12.save!
 
@@ -902,7 +902,7 @@ yoga_class13 = YogaClass.create!(
 )
 
 file = URI.open("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/jivamukti-yoga-candida-vivalda-womenshealth-1624959346.jpg")
-yoga_class13.photos.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
+yoga_class13.photo.attach(io: file, filename: "#{rand(1..1000000)}.png", content_type: "image/png")
 
 yoga_class13.save!
 
