@@ -82,7 +82,7 @@
         </div>
       </div>
       <div class="studio-card-body">
-        <p class="border-bottom pb-3 mb-3"><i class="fa-solid fa-location-dot"></i> <%= @yoga_class.yoga_studio.address %></p>
+        <p class="border-bottom pb-3 mb-3"><i class="fa-solid fa-location-dot"></i> <%= @yoga_class.yoga_studio_teacher.yoga_studio.address %></p>
         <p><%= truncate(@yoga_class.yoga_studio_teacher.yoga_studio.description, :length => 90) %></p>
       </div>
       <%= link_to "View Studio", yoga_studio_path(@yoga_class.yoga_studio_teacher.yoga_studio), class: "btn-flat d-block w-100" %>

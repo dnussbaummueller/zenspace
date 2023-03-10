@@ -76,12 +76,11 @@ class YogaClassesController < ApplicationController
       end
     end
 
-
     # Map markers
     @markers = @yoga_classes.map do |yoga_class|
       {
-        lat: yoga_class.yoga_studio.latitude,
-        lng: yoga_class.yoga_studio.longitude,
+        lat: yoga_class.yoga_studio_teacher.yoga_studio.latitude,
+        lng: yoga_class.yoga_studio_teacher.yoga_studio.longitude,
         info_window_html: render_to_string(partial: "shared/info_window", locals: { yoga_class: yoga_class }),
         marker_html: render_to_string(partial: "shared/marker")
       }
@@ -94,8 +93,8 @@ class YogaClassesController < ApplicationController
     @yoga_classes = [@yoga_class]
     @markers = @yoga_classes.map do |yoga_class|
       {
-        lat: yoga_class.yoga_studio.latitude,
-        lng: yoga_class.yoga_studio.longitude,
+        lat: yoga_class.yoga_studio_teacher.yoga_studio.latitude,
+        lng: yoga_class.yoga_studio_teacher.yoga_studio.longitude,
         info_window_html: render_to_string(partial: "shared/show_window", locals: { yoga_class: yoga_class }),
         marker_html: render_to_string(partial: "shared/marker")
       }

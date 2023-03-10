@@ -43,7 +43,7 @@
   <div class="row">
     <div class="col">
       <div class="card-product" style="border-radius: 12px">
-        <%= cl_image_tag @yoga_classes[0].photos.first.key, height: 300, width: 416, crop: :fill %>
+        <%= cl_image_tag @yoga_classes[0].photo.key, height: 300, width: 416, crop: :fill %>
         <div class="card-body">
           <h5 class="card-title"><%= @yoga_classes[0].name %></h5>
           <p class="card-text"><i class="fa-regular fa-clock"> </i> <%= @yoga_classes[0].start_time.strftime("%k:%M") %></p>
@@ -55,7 +55,7 @@
     </div>
     <div class="col">
       <div class="card-product" style="border-radius: 12px">
-        <%= cl_image_tag @yoga_classes[1].photos.first.key, height: 300, width: 416, crop: :fill %>
+        <%= cl_image_tag @yoga_classes[1].photo.key, height: 300, width: 416, crop: :fill %>
         <div class="card-body">
           <h5 class="card-title"><%= @yoga_classes[1].name %></h5>
           <p class="card-text"><i class="fa-regular fa-clock"> </i> <%= @yoga_classes[1].start_time.strftime("%k:%M") %></p>
@@ -67,7 +67,7 @@
     </div>
     <div class="col">
       <div class="card-product" style="border-radius: 12px">
-        <%= cl_image_tag @yoga_classes[2].photos.first.key, height: 300, width: 416, crop: :fill %>
+        <%= cl_image_tag @yoga_classes[2].photo.key, height: 300, width: 416, crop: :fill %>
         <div class="card-body">
           <h5 class="card-title"><%= @yoga_classes[2].name %></h5>
           <p class="card-text"><i class="fa-regular fa-clock"> </i> <%= @yoga_classes[2].start_time.strftime("%k:%M") %></p>
