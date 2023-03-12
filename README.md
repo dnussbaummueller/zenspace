@@ -1,1 +1,1 @@
-Rails app built within the Le Wagon Full Stack Web Development bootcamp. First of the two final group projects, where we worked in a team of four to learn how to collaborate on a software project.
+Rails app built within the Le Wagon Full Stack Web Development bootcamp. This is the final group project, where we worked in a group of four to learn how to collaborate in an agile way.
