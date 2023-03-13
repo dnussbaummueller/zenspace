@@ -31,13 +31,12 @@ has_many :bookings, dependent: :destroy
   validates :start_time, presence: true
   validates :end_time, presence: true, comparison: { greater_than: :start_time }
   validates :capacity, presence: true, comparison: { greater_than: 0 }, numericality: true
-  validates :style, presence: true, length: { minimum: 3 }
-  validates :difficulty, presence: true, length: { minimum: 3 }
+
   validate :photos_type
 
   def photos_type
     if photo.attached? == false
-      errors.add(:photo, ": at least one photo should be attached!")
+      errors.add(:photo, ": one photo should be attached!")
     end
   end
   # ================================================================
