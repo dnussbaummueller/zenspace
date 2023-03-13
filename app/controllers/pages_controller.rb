@@ -7,13 +7,9 @@ class PagesController < ApplicationController
   end
 
   def admin
-    if current_user.admin?
-      @yoga_studios = YogaStudio.all
-      @yoga_classes = YogaClass.all
-      @users = User.all
-      @teachers = Teacher.all
-    else
-      redirect_to root_path
-    end
+      @yoga_studios = YogaStudio.where(user: current_user)
+      @yoga_classes = YogaClass.where(user: current_user)
+      @teachers = Teacher.where(user: current_user)
+      @yoga_studio_teacher = YogaStudioTeacher.new
   end
 end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :yoga_classes, only: [:index, :show, :new, :create] do
+  resources :yoga_classes, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:create, :show]
   end
 
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :yoga_studios, only: [:show, :index, :new, :create] do
     resources :reviews, only: [:create]
   end
+
+  resources :yoga_studio_teachers, only: [:create]
 
   resources :reviews, only: [:destroy]
   # resources :bookings, only: [:show]

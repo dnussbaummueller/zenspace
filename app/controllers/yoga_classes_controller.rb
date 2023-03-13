@@ -95,7 +95,7 @@ class YogaClassesController < ApplicationController
       {
         lat: yoga_class.yoga_studio_teacher.yoga_studio.latitude,
         lng: yoga_class.yoga_studio_teacher.yoga_studio.longitude,
-        info_window_html: render_to_string(partial: "shared/show_window", locals: { yoga_class: yoga_class }),
+        info_window_html: render_to_string(partial: "shared/show_window", locals: { yoga_studio: yoga_class.yoga_studio_teacher.yoga_studio }),
         marker_html: render_to_string(partial: "shared/marker")
       }
     end
@@ -103,7 +103,6 @@ class YogaClassesController < ApplicationController
 
   def new
     @yoga_class = YogaClass.new
-   
   end
 
   def create
@@ -118,7 +117,28 @@ class YogaClassesController < ApplicationController
     end
   end
 
+  def edit
+    set
+  end
+
+  def update
+    set
+    @yoga_class.update(yoga_class_params)
+    redirect_to yoga_class_path(@yoga_class)
+  end
+
+  def destroy
+    set
+    @yoga_class.destroy
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to admin_path, status: :see_other
+  end
+
   private
+
+  def set
+    @yoga_class = YogaClass.find(params[:id])
+  end
 
   def yoga_class_params
     params.require(:yoga_class).permit(:name, :price, :description, :difficulty, :style, :start_time, :end_time, :capacity, :photo, :yoga_studio, :teacher)

@@ -19,7 +19,7 @@
   <%# card for classes %>
   <div class="my-card">
     <h2>Classes</h2>
-    <div class="d-flex show-container">
+    <div class="d-flex show-container flex-wrap">
       <% @teacher.yoga_studio_teachers.each do |yoga_studio_relation| %>
         <% yoga_studio_relation.yoga_classes.each do |yoga_class| %>
           <%= link_to(yoga_class_path(yoga_class), class: "text-decoration-none") do %>
@@ -35,7 +35,7 @@
   <%# card for studios %>
   <div class="my-card mt-3">
     <h2>Studios</h2>
-    <div class="d-flex show-container">
+    <div class="d-flex show-container flex-wrap">
       <% @teacher.yoga_studio_teachers.each do |yoga_studio_relation| %>
 
         <%= link_to(yoga_studio_path(yoga_studio_relation.yoga_studio), class: "text-decoration-none") do %>

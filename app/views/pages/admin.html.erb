@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center border-bottom mb-3 pb-3">
+    <h1>Admin dashboard</h1>
+    <div class="admin-buttons">
+      <%= link_to "Create new yoga class", new_yoga_class_path, class: "btn btn-flat" %>
+      <%= link_to "Create new teacher", new_teacher_path, class: "btn btn-flat" %>
+      <%= link_to "Create new studio", new_yoga_studio_path, class: "btn btn-flat" %>
+    </div>
+  </div>
+
+  <h2 class="mt-3 mb-3">All your yoga classes:</h2>
+  <%# Creating a card for each yoga class: %>
+  <% @yoga_classes.each do |yoga_class| %>
+    <div class="my-card" data-controller="collapse">
+      <div class="d-flex justify-content-between border-bottom pb-3 mb-3">
+        <h2><%= yoga_class.name %></h2>
+        <div class="admin-buttons">
+          <a class="btn btn-flat" data-action="click->collapse#buttonClick">Show participants</a>
+          <%= link_to "Edit",  edit_yoga_class_path(yoga_class), class: "btn btn-edit" %>
+          <%= link_to "Delete", yoga_class_path(yoga_class), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete" %>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div class="class-info">
+          <p><i class="fa-solid fa-calendar-days"></i> <%= yoga_class.start_time.strftime("%d of %B, %Y") %></p>
+          <p><i class="fa-solid fa-clock"></i> <%= yoga_class.start_time.strftime("%k:%M") %> - <%= yoga_class.end_time.strftime("%k:%M") %></p>
+          <p><i class="fa-solid fa-user-group"></i> <%= (yoga_class.capacity - yoga_class.bookings.size) %> out of <%= yoga_class.capacity %> spaces left</p>
+        </div>
+      <%# Show participants: %>
+      <div class="d-none" data-collapse-target="content">
+        <% if yoga_class.bookings.present? %>
+          <% yoga_class.bookings.each do |booking| %>
+            <p><%= booking.user.email %></p>
+          <% end %>
+        <% else %>
+          <p>No participants yet</p>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%# Yoga class card end %>
+
+  <h2 class="mt-3 mb-3">All your yoga studios:</h2>
+  <%# Creating a card for each yoga studio: %>
+    <% @yoga_studios.each do |yoga_studio| %>
+      <div class="my-card">
+        <div class="d-flex justify-content-between border-bottom pb-3 mb-3">
+        <h2><%= yoga_studio.name %></h2>
+        <div class="admin-buttons">
+          <%= link_to "Edit", yoga_studio_path(yoga_studio), class: "btn btn-edit" %>
+          <%= link_to "Delete", yoga_studio_path(yoga_studio), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete" %>
+        </div>
+      </div>
+        <p><i class="fa-solid fa-location-dot"></i> <%= yoga_studio.address %></p>
+        <%# @yoga_studio_teacher = YogaStudioTeacher.new(yoga_studio: yoga_studio) %>
+        <%= simple_form_for(@yoga_studio_teacher) do |f| %>
+          <%= f.input :teacher_id, collection: Teacher.all, label: "Teacher name" %>
+          <%= f.hidden_field :yoga_studio_id, value: yoga_studio.id %>
+          <%= f.submit "Add teacher to this studio", class: "btn btn-flat" %>
+        <% end %>
+      </div>
+    <% end %>
+
+  <h2 class="mt-3 mb-3">All your teachers:</h2>
+  <%# Creating a card for each teacher: %>
+  <% @teachers.each do |teacher| %>
+    <div class="my-card">
+      <div class="d-flex justify-content-between border-bottom pb-3 mb-3">
+        <h2><%= teacher.name %></h2>
+        <div class="admin-buttons">
+          <%= link_to "Edit", teacher_path(teacher), class: "btn btn-edit" %>
+          <%= link_to "Delete", teacher_path(teacher), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete" %>
+        </div>
+      </div>
+      <p><i class="fa-solid fa-location-dot"></i> <%= teacher.description %></p>
+      <%# link_to "Edit", edit_teacher_path(teacher), class: "btn btn-edit" %>
+      <%= link_to "Delete", teacher_path(teacher), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete" %>
+    </div>
+  <% end %>
+
+</div>
