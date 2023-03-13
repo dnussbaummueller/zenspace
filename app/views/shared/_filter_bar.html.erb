@@ -6,12 +6,10 @@
 
 
       <%# Style %>
-      <button class="btn-ghost dropdown-toggle" type="button" id="style-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
-        Style
+      <button class="btn-filter dropdown-toggle" type="button" id="style-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+        <i class="fa-solid fa-star"></i> Style
       </button>
-
       <div class="dropdown-menu p-3 rounded" aria-labelledby="style-dropdown" data-bs-auto-close="false">
-
         <%# Dropdown Options %>
         <% %w[Hatha Vinyasa Ashtanga Iyengar Hot Kundalini Restorative Yin Power Anusara Prenatal Postnatal Jivamukti Other].each do |yoga_style| %>
           <div class="form-check">
@@ -19,12 +17,11 @@
             <%= label_tag "#{yoga_style}-checkbox", "#{yoga_style}", class: "form-check-label", data: { bs_toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" }, onclick: "toggleCheckbox('#{yoga_style}-checkbox'); event.stopPropagation(); return false;" %>
           </div>
         <% end %>
-
       </div>
 
       <%# Difficulty %>
-      <button class="btn-ghost dropdown-toggle" type="button" id="difficulty-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
-        Difficulty
+      <button class="btn-filter dropdown-toggle" type="button" id="difficulty-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+        <i class="fa-solid fa-person"></i> Difficulty
       </button>
 
       <div class="dropdown-menu p-3 rounded" aria-labelledby="difficulty-dropdown">
@@ -43,8 +40,8 @@
 
 
       <%# Duration %>
-      <button class="btn-ghost dropdown-toggle" type="button" id="duration-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
-        Duration
+      <button class="btn-filter dropdown-toggle" type="button" id="duration-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+        <i class="fa-solid fa-hourglass-half"></i> Duration
       </button>
 
       <div class="dropdown-menu p-3 rounded" aria-labelledby="duration-dropdown">
@@ -62,8 +59,8 @@
 
 
       <%# Price %>
-      <button class="btn-ghost dropdown-toggle" type="button" id="price-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
-        Price
+      <button class="btn-filter dropdown-toggle" type="button" id="price-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+        <i class="fa-solid fa-tag"></i> Price
       </button>
 
       <div class="dropdown-menu p-3" aria-labelledby="price-dropdown">
@@ -78,8 +75,8 @@
       </div>
 
         <%# Date / Time %>
-        <button class="btn-ghost dropdown-toggle" type="button" id="date-range-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
-          Date Range
+        <button class="btn-filter dropdown-toggle" type="button" id="date-range-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+          <i class="fa-solid fa-calendar-days"></i> Date Range
         </button>
 
         <div class="dropdown-menu p-3 rounded" aria-labelledby="date-range-dropdown" data-controller="flatpickr">
@@ -94,8 +91,8 @@
         </div>
 
       <%# Distance %>
-      <button class="btn-ghost dropdown-toggle" type="button" id="distance-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
-        Distance
+      <button class="btn-filter dropdown-toggle" type="button" id="distance-dropdown" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+        <i class="fa-solid fa-location-dot"></i> Distance
       </button>
       <div class="dropdown-menu p-3" aria-labelledby="distance-dropdown">
         <div class="form-group">

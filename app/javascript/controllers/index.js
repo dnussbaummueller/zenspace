@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import CollapseController from "./collapse_controller"
+application.register("collapse", CollapseController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 

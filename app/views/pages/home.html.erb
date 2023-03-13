@@ -1,6 +1,6 @@
 <!-- Hero -->
-<div class="p-5 text-center bg-image rounded-3" style="background-image: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'); height: 100vh; width: 100vw; margin-top: -100px;">
-  <div style="background-color: rgba(0,0,0,0.5); width: 100vw; height: 100vh; position: absolute; top: 0px; left:0px;">
+<div class="p-5 text-center bg-image rounded-3" style="background-image: url('https://wallpapercave.com/wp/wp3157182.jpg'); height: 100vh; width: 100vw; margin-top: -100px;">
+  <div style="background-color: rgba(0,0,0,0.6); width: 100vw; height: 100vh; position: absolute; top: 0px; left:0px;">
     <!-- Log in button -->
     <% if user_signed_in? %>
       <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "text-decoration-none btn-login-home btn-login", style: "position: absolute; right: 30px; top: 25px;" %>
@@ -11,22 +11,31 @@
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-light" style="width: 800px;">
           <!-- Slogan text animation -->
-          <h1 class="mb-4">Find Your Next <span class="mov"> </span></h1>
+          <h1 class="mb-4">Find Your Next <span class="mov"> </span>Yoga Class</h1>
           <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
             <script>
               var typed = new Typed(".mov",{
-              strings: [,"Hatha Yoga Class", "Vinyasa Yoga Class", "Ashtanga Yoga Class", "Iyengar Yoga Class", "Hot Yoga Class", "Kundalini Yoga Class", "Restorative Yoga Class", "Yin Yoga Class"],
-              typeSpeed: 80,
-              backSpeed: 60,
+              strings: [,"Hatha", "Vinyasa", "Ashtanga", "Iyengar", "Hot", "Kundalini", "Restorative", "Yin"],
+              typeSpeed: 200,
+              backSpeed: 200,
               loop: true
             })
             </script>
           <!-- Slogan text animation -->
-          <!-- Search Bar #TODO: Add loop so search redirects to results -->
+          <!-- Search Bar  -->
           <div class="w-75 margin-auto">
             <%= render "shared/search_bar" %>
           </div>
           <!-- Search Bar -->
+          <div class="filter-buttons d-flex justify-content-center gap-2 mt-3">
+            <%= link_to "All Classes", yoga_classes_path, class: "btn-flat" %>
+            <%= link_to "Hatha", yoga_classes_path(style: "Hatha"), class: "btn-flat" %>
+            <%= link_to "Vinyasa", yoga_classes_path(style: "Vinyasa"), class: "btn-flat" %>
+            <%= link_to "Ashtanga", yoga_classes_path(style: "Ashtanga"), class: "btn-flat" %>
+            <%= link_to "Yin", yoga_classes_path(style: "Yin"), class: "btn-flat" %>
+            <%= link_to "Hot", yoga_classes_path(style: "Hot"), class: "btn-flat" %>
+          </div>
+
         </div>
       </div>
   </div>

@@ -52,42 +52,47 @@
   <%# teacher+studio container %>
   <div class="show-container d-flex justify-content-between">
     <%# Teacher Card: %>
-    <div class="teacher-card my-card third flex-grow-1">
-      <div class="teacher-card-header d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
-        <div class="d-flex flex-column">
-          <h2><%= @yoga_class.yoga_studio_teacher.teacher.name %></h2>
-          <%= render 'shared/average_rating', reviewable_type: @yoga_class.yoga_studio_teacher.teacher %>
+        <div class="teacher-card my-card third flex-grow-1 d-flex flex-column">
+          <div class="card-content flex-grow-1">
+            <div class="teacher-card-header d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+              <div class="d-flex flex-column">
+                <h2><strong>Teacher: </strong><%= @yoga_class.yoga_studio_teacher.teacher.name %></h2>
+                <%= render 'shared/average_rating', reviewable_type: @yoga_class.yoga_studio_teacher.teacher %>
+              </div>
+              <div class="teacher-avatar">
+                <%= cl_image_tag @yoga_class.yoga_studio_teacher.teacher.photos.first.key, class: "avatar-large" %>
+              </div>
+            </div>
+            <div class="teacher-card-body flex-grow-1">
+              <p><%= truncate(@yoga_class.yoga_studio_teacher.teacher.description, :length => 250) %></p>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <%= link_to "View Teacher", teacher_path(@yoga_class.yoga_studio_teacher.teacher), class: "btn-flat d-block w-100" %>
+          </div>
         </div>
 
-        <div class="teacher-avatar">
-          <%= cl_image_tag @yoga_class.yoga_studio_teacher.teacher.photos.first.key, class: "avatar-large" %>
-        </div>
-      </div>
-      <div class="teacher-card-body flex-grow-1">
-        <p><%= truncate(@yoga_class.yoga_studio_teacher.teacher.description, :length => 100) %></p>
-      </div>
-      <%= link_to "View Teacher", teacher_path(@yoga_class.yoga_studio_teacher.teacher), class: "btn-flat d-block w-100" %>
-
-    </div>
 
     <%# Studio Card %>
-    <div class="studio-card my-card third flex-grow-1">
+    <div class="studio-card my-card third flex-grow-1 d-flex flex-column">
       <div class="studio-card-header d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
         <div class="d-flex flex-column">
-          <h2><%= @yoga_class.yoga_studio_teacher.yoga_studio.name %></h2>
+          <h2><strong>Studio: </strong><%= @yoga_class.yoga_studio_teacher.yoga_studio.name %></h2>
           <%= render 'shared/average_rating', reviewable_type: @yoga_class.yoga_studio_teacher.yoga_studio %>
         </div>
         <div class="studio-avatar">
           <%= cl_image_tag @yoga_class.yoga_studio_teacher.yoga_studio.photos.first.key, class: "avatar-large" %>
         </div>
       </div>
-      <div class="studio-card-body">
+      <div class="studio-card-body flex-grow-1">
         <p class="border-bottom pb-3 mb-3"><i class="fa-solid fa-location-dot"></i> <%= @yoga_class.yoga_studio_teacher.yoga_studio.address %></p>
         <p><%= truncate(@yoga_class.yoga_studio_teacher.yoga_studio.description, :length => 90) %></p>
       </div>
-      <%= link_to "View Studio", yoga_studio_path(@yoga_class.yoga_studio_teacher.yoga_studio), class: "btn-flat d-block w-100" %>
+      <div class="mt-auto">
+        <%= link_to "View Studio", yoga_studio_path(@yoga_class.yoga_studio_teacher.yoga_studio), class: "btn-flat d-block w-100" %>
+      </div>
     </div>
-  </div>
+
 
 
 </div>
