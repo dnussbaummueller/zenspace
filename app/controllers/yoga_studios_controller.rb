@@ -31,7 +31,7 @@ class YogaStudiosController < ApplicationController
     if @yoga_studio.save
       redirect_to yoga_studio_path(@yoga_studio)
     else
-      render yoga_studios_path, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

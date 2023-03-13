@@ -7,4 +7,16 @@ class YogaStudio < ApplicationRecord
 
   has_many :yoga_studio_teachers
   has_many :yoga_classes, through: :yoga_studio_teachers
+
+  # validation
+  validates :name, presence: true, length: { minimum: 3 }, uniqueness: { scope: :address }
+  validates :address, presence: true, length: { minimum: 10 }
+  validates :description, presence: true, length: { in: 10..800 }
+  validate :photos_type
+
+  def photos_type
+    if photos.attached? == false
+      errors.add(:photos, ": at least one photo should be attached!")
+    end
+  end
 end
