@@ -40,8 +40,8 @@
 
 .card-product {
   overflow: hidden;
-  max-width: 80vw;
-  height: 200px;
+  width: 41vw;
+  height: 230px;
   background:white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -133,4 +133,12 @@
 
 .yoga-class-address {
   margin: left 10px;; /* Align the address information to the right */
+}
+
+.img-home {
+  width: 200px !important;
+}
+.img-logo{
+  width: 50px;
+  margin: 30px;
 }

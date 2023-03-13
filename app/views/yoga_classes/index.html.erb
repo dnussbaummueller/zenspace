@@ -4,11 +4,9 @@
 <div class="d-flex flex-direction-column justify-content-center space-between-around align-middle">
 
     <div class="col">
-      <div class=" d-flex align-items: stretch ">
+      <div class=" d-flex justify-content-center mb-3 mt-3  ">
         <div class="cards">
           <% @yoga_classes.each do |yoga_class| %>
-
-
             <div class="card-product  shadow-sm rounded-4" data-aos="zoom-in">
                 <%= link_to yoga_class, class: "h-100" do %>
                   <% if yoga_class.photo.attached? %>
@@ -16,13 +14,15 @@
                   <% end %>
                 <%end%>
               <div class="container">
+              <%= link_to yoga_class, class: "text-decoration-none text-reset" do %>
                 <div class=" border-bottom m-2"> <h4><%= yoga_class.name %></h4></div>
                     <div class="d-flex justify-content-between align-items-end m-2">
-                      <p class="m-1"><i class="fa-solid fa-location-dot"></i> <%= yoga_class.yoga_studio_teacher.yoga_studio.address %> </strong></p>
+                      <p class="m-1"><i class="fa-solid fa-location-dot"></i> <%= yoga_class.yoga_studio_teacher.yoga_studio.address.split(",").first %> </strong></p>
+                      <p><i class="fa-solid fa-hourglass-half"></i> <%= yoga_class.duration_in_minutes %> minutes</p>
                     </div>
                     <div class="d-flex justify-content-between align-items-end m-2">
-                      <p class="m-1"><i class="fa-solid fa-tag"></i> <strong><%= yoga_class.price %> Euros </strong></p>
-                      <p class="m-1"><i class="fa-solid fa-user-group"></i> <%= (yoga_class.capacity - yoga_class.bookings.size) %> out of <%= yoga_class.capacity %> spaces left</p>
+                      <p class="m-1"><i class="fa-solid fa-tag"> </i> <%= yoga_class.price %> <i class="fa-solid fa-euro-sign"></i></p>
+                      <p class="m-1"><i class="fa-solid fa-user-group"></i> <%= (yoga_class.capacity - yoga_class.bookings.size) %> / <%= yoga_class.capacity %> spaces left</p>
 
                     </div>
                     <div class="d-flex justify-content-between m-2">
@@ -35,8 +35,7 @@
                     </div>
                 </div>
               </div>
-
-
+              <% end %>
           <% end %>
         </div>
       </div>
