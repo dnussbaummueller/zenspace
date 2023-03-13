@@ -118,7 +118,28 @@ class YogaClassesController < ApplicationController
     end
   end
 
+  def edit
+    set
+  end
+
+  def update
+    set
+    @yoga_class.update(yoga_class_params)
+    redirect_to yoga_class_path(@yoga_class)
+  end
+
+  def destroy
+    set
+    @yoga_class.destroy
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to admin_path, status: :see_other
+  end
+
   private
+
+  def set
+    @yoga_class = YogaClass.find(params[:id])
+  end
 
   def yoga_class_params
     params.require(:yoga_class).permit(:name, :price, :description, :difficulty, :style, :start_time, :end_time, :capacity, :photo, :yoga_studio, :teacher)
