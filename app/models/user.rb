@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  def admin?
-    self.role == "admin"
-  end
+  has_many :yoga_studios
+  has_many :teachers
 end

@@ -9,5 +9,6 @@ class PagesController < ApplicationController
       @yoga_studios = YogaStudio.where(user: current_user)
       @yoga_classes = YogaClass.where(user: current_user)
       @teachers = Teacher.where(user: current_user)
+      @yoga_studio_teacher = YogaStudioTeacher.new
   end
 end

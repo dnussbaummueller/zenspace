@@ -20,9 +20,9 @@ class BookingsController < ApplicationController
     @yoga_classes = [@booking.yoga_class]
     @markers = @yoga_classes.map do |yoga_class|
       {
-        lat: yoga_class.yoga_studio.latitude,
-        lng: yoga_class.yoga_studio.longitude,
-        info_window_html: render_to_string(partial: "shared/show_window", locals: { yoga_class: yoga_class }),
+        lat: yoga_class.yoga_studio_teacher.yoga_studio.latitude,
+        lng: yoga_class.yoga_studio_teacher.yoga_studio.longitude,
+        info_window_html: render_to_string(partial: "shared/show_window", locals: { yoga_studio: yoga_class.yoga_studio_teacher.yoga_studio }),
         marker_html: render_to_string(partial: "shared/marker")
       }
     end
