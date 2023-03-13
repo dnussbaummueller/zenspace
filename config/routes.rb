@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
 
+  resources :yoga_studio_teachers, only: [:create]
+
   resources :reviews, only: [:destroy]
   # resources :bookings, only: [:show]
 

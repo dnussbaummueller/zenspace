@@ -7,8 +7,10 @@
     <%= yc.input :start_time %>
     <%= yc.input :end_time %>
     <%= yc.input :capacity %>
-    <%= yc.input :yoga_studio, collection: YogaStudio.all, label: "Yoga Studio Name", prompt: "Select a yoga studio" %>
+
+    <%= yc.input :yoga_studio, collection: YogaStudio.where(user: current_user), label: "Yoga Studio Name", prompt: "Select a yoga studio" %>
     <%= yc.input :teacher, collection: Teacher.all, label: "Teacher Name", prompt: "Select a teacher" %>
+
     <%= yc.input :difficulty, :collection => ["Beginner", "Intermediate", "Advanced", "All Levels"]  %>
     <%= yc.input :style, :collection =>%w[Hatha Vinyasa Ashtanga Iyengar Hot Kundalini Restorative Yin Power Anusara Prenatal Postnatal Jivamukti Other]  %>
     <%= yc.input :photo, as: :file %>

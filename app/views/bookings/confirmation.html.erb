@@ -8,7 +8,7 @@
           <p><i class="fa-solid fa-clock"></i> <%= @booking.yoga_class.start_time.strftime("%k:%M") %> - <%= @booking.yoga_class.end_time.strftime("%k:%M") %></p>
         </div>
         <div class="d-flex justify-content-between">
-          <p><i class="fa-solid fa-location-dot"></i> <%= @booking.yoga_class.yoga_studio.address %></p>
+          <p><i class="fa-solid fa-location-dot"></i> <%= @booking.yoga_class.yoga_studio_teacher.yoga_studio.address %></p>
           <p><i class="fa-solid fa-person"></i> <%= @booking.yoga_class.difficulty %></p>
         </div>
         <div class="d-flex justify-content-between">
