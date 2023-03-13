@@ -15,7 +15,7 @@
         <h2><%= yoga_class.name %></h2>
         <div class="admin-buttons">
           <a class="btn btn-flat" data-action="click->collapse#buttonClick">Show participants</a>
-          <%= link_to "Edit", yoga_class_path(yoga_class), class: "btn btn-edit" %>
+          <%= link_to "Edit",  edit_yoga_class_path(yoga_class), class: "btn btn-edit" %>
           <%= link_to "Delete", yoga_class_path(yoga_class), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete" %>
         </div>
       </div>
