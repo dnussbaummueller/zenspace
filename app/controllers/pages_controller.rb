@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @yoga_classes = YogaClass.all
+    @random_yoga_classes = @yoga_classes.sample(3)
   end
 
   def admin

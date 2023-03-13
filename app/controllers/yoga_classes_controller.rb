@@ -103,7 +103,7 @@ class YogaClassesController < ApplicationController
 
   def new
     @yoga_class = YogaClass.new
-    @yoga_class.yoga_studio_ids = []
+   
   end
 
   def create
