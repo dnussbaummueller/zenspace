@@ -36,7 +36,7 @@ has_many :bookings, dependent: :destroy
   validate :photos_type
 
   def photos_type
-    if photos.attached? == false
+    if photo.attached? == false
       errors.add(:photo, ": at least one photo should be attached!")
     end
   end
